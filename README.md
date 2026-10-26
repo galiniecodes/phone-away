@@ -42,7 +42,7 @@ Use `--no-open` to run without opening a browser. Custom audio is stored per bro
 - **Confirmation:** defaults to one second of phone-in-hand evidence before playing audio.
 - **Check speed:** targets 10, 5, or 2 checks per second. Actual speed depends on your device. Only one fresh frame is processed at a time; frames are never queued.
 - **Repeat alerts:** one alert per pickup. One second of clear observations rearms the next alert. A single missed detection or an obscured hand does not immediately rearm it.
-- **Custom audio:** up to 30 seconds and 10 MB. The original clip is saved locally in IndexedDB and restored after refresh. Each new pickup plays it from the beginning. Clearing browser site data removes it; **Use default** restores the bundled sample.
+- **Custom audio:** up to 30 seconds and 10 MB. The original clip is saved locally in IndexedDB and restored after refresh. Each new pickup plays it from the beginning. Clearing browser site data removes it; **Use default** restores the bundled goat scream (1.8 seconds).
 - **Test alert (no camera):** simulates a phone-use incident to test timing and audio. It does not test model accuracy.
 
 Monitoring continues when you switch tabs while the browser permits execution. Keep the page open and your Mac awake: browser suspension, background throttling, and computer sleep can delay or stop checks.

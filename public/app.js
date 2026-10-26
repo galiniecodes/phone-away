@@ -89,10 +89,10 @@ async function playCallout(test = false) {
 }
 
 function renderAudioSelection() {
-  $('audio-name').textContent = customAudio ? customAudio.name : '“Hey. The phone can wait.”';
+  $('audio-name').textContent = customAudio ? customAudio.name : 'Goat scream';
   $('audio-detail').textContent = customAudio
     ? `${customAudio.duration.toFixed(1)} seconds · ${customAudio.saved ? 'Saved in this browser' : 'Not saved — this session only'}`
-    : 'Sample audio · 3 seconds';
+    : 'Default audio · 1.8 seconds';
   $('audio-reset').hidden = !customAudio;
 }
 
