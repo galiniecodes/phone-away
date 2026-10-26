@@ -1,0 +1,8 @@
+# Build-only dependencies. The local app does not import any of these.
+# Exported with Python 3.12.14 on macOS arm64. Never install globally.
+ultralytics==8.4.22
+torch==2.14.1
+torchvision==0.29.1
+onnx==1.17.0
+numpy==2.5.4
+protobuf==7.36.2

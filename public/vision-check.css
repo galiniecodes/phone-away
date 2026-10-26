@@ -1,0 +1,7 @@
+.vision-check { max-width: 840px; padding: 40px 24px; margin: auto; }
+.vision-check h1 { font-size: 36px; margin: 32px 0 16px; }
+.vision-check p { color: #b4b4b4; margin: 16px 0; line-height: 1.5; }
+.vision-check input { display: block; margin: 12px 0; }
+.vision-check button { width: auto; margin: 20px 0; }
+.vision-check canvas { display: block; margin: 20px auto; width: auto; max-width: 100%; max-height: 480px; background: #111; border: 1px solid #333; border-radius: 12px; }
+.vision-check pre { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.5; }

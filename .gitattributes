@@ -1,0 +1,6 @@
+* text=auto
+*.onnx binary
+*.task binary
+*.wasm binary
+*.wav binary
+*.command text eol=lf

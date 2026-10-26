@@ -1,0 +1,146 @@
+{
+  "schema": 1,
+  "assets": [
+    {
+      "path": "public/vendor/onnxruntime/ort.webgpu.min.mjs",
+      "url": "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0/dist/ort.webgpu.min.mjs",
+      "license": "MIT",
+      "bytes": 357582,
+      "sha256": "e131e81c9324807e1e6f9103e8f8e936112827dcc9993cde9407a333b1f07ae0"
+    },
+    {
+      "path": "public/vendor/onnxruntime/ort-wasm-simd-threaded.jsep.mjs",
+      "url": "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0/dist/ort-wasm-simd-threaded.jsep.mjs",
+      "license": "MIT",
+      "bytes": 44677,
+      "sha256": "1cbcba8f2c769c1eecbab66a1b1e55ef11704515bf4306373e3db3c37cf6dcd8"
+    },
+    {
+      "path": "public/vendor/onnxruntime/ort-wasm-simd-threaded.jsep.wasm",
+      "url": "https://cdn.jsdelivr.net/npm/onnxruntime-web@1.22.0/dist/ort-wasm-simd-threaded.jsep.wasm",
+      "license": "MIT",
+      "bytes": 21872216,
+      "sha256": "b45970d0632383a057c27ca5b660b216f8e00c17cf8db9f6207b5e4abc839368"
+    },
+    {
+      "path": "public/vendor/onnxruntime/LICENSE",
+      "url": "https://raw.githubusercontent.com/microsoft/onnxruntime/v1.22.0/LICENSE",
+      "license": "MIT",
+      "bytes": 1073,
+      "sha256": "2f07c72751aed99790b8a4869cf2311df85a860b22ded05fa22803587a48922c"
+    },
+    {
+      "path": "public/vendor/mediapipe/vision_bundle.mjs",
+      "url": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.21/vision_bundle.mjs",
+      "license": "Apache-2.0",
+      "bytes": 137735,
+      "sha256": "40f4123dfcd75cfa58add046919cc6f52fde66f009ff582997c09ba54c6ba27c"
+    },
+    {
+      "path": "public/vendor/mediapipe/wasm/vision_wasm_internal.js",
+      "url": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.21/wasm/vision_wasm_internal.js",
+      "license": "Apache-2.0",
+      "bytes": 204284,
+      "sha256": "4a97e2520ba506c680ecd6ba6acfb146888afa0e2746d57f205352bc6ebb82eb"
+    },
+    {
+      "path": "public/vendor/mediapipe/wasm/vision_wasm_internal.wasm",
+      "url": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.21/wasm/vision_wasm_internal.wasm",
+      "license": "Apache-2.0",
+      "bytes": 9574032,
+      "sha256": "f00ec4731faa23b3e714d00e88d4d10e2df5c0a427d3a2b4ae6e3526fdd14ef7"
+    },
+    {
+      "path": "public/vendor/mediapipe/wasm/vision_wasm_nosimd_internal.js",
+      "url": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.21/wasm/vision_wasm_nosimd_internal.js",
+      "license": "Apache-2.0",
+      "bytes": 204137,
+      "sha256": "927def7b465c51b86e4b3060f93646aca4e27121f4b8fc0483786e407ea9cf1f"
+    },
+    {
+      "path": "public/vendor/mediapipe/wasm/vision_wasm_nosimd_internal.wasm",
+      "url": "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.21/wasm/vision_wasm_nosimd_internal.wasm",
+      "license": "Apache-2.0",
+      "bytes": 9448638,
+      "sha256": "3821ea9b1f7fb8c549ef2a064ef5c85750bf375c545a49fd6eea0df44a95f1f4"
+    },
+    {
+      "path": "public/models/hand_landmarker/hand_landmarker.task",
+      "url": "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task",
+      "license": "Apache-2.0",
+      "bytes": 7819105,
+      "sha256": "fbc2a30080c3c557093b5ddfc334698132eb341044ccee322ccf8bcf3607cde1"
+    },
+    {
+      "path": "public/models/yolo26/LICENSE-AGPL-3.0.txt",
+      "url": "https://raw.githubusercontent.com/ultralytics/ultralytics/v8.4.22/LICENSE",
+      "license": "AGPL-3.0",
+      "bytes": 34523,
+      "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0"
+    }
+  ],
+  "generated": [
+    {
+      "path": "public/models/yolo26/yolo26n.onnx",
+      "bytes": 9894502,
+      "sha256": "dd9077ee595d3758848aa08da0492270b61f3c62ce62e5c4710aaa5000a2d59a",
+      "license": "AGPL-3.0",
+      "source": {
+        "url": "https://github.com/ultralytics/assets/releases/download/v8.4.0/yolo26n.pt",
+        "bytes": 5544453,
+        "sha256": "9b09cc8bf347f0fc8a5f7657480587f25db09b34bf33b0652110fb03a8ad4fef"
+      },
+      "export_packages": {
+        "ultralytics": "8.4.22",
+        "torch": "2.14.1",
+        "torchvision": "0.29.1",
+        "onnx": "1.17.0",
+        "numpy": "2.5.4",
+        "protobuf": "7.36.2"
+      },
+      "export_options": {
+        "format": "onnx",
+        "imgsz": 640,
+        "batch": 1,
+        "opset": 17,
+        "dynamic": false,
+        "half": false,
+        "simplify": false,
+        "end2end": true,
+        "nms": false,
+        "device": "cpu"
+      },
+      "input": {
+        "name": "images",
+        "shape": [
+          1,
+          3,
+          640,
+          640
+        ],
+        "dtype": "float32",
+        "layout": "NCHW RGB, values 0..1, letterboxed with114/255"
+      },
+      "output": {
+        "name": "output0",
+        "shape": [
+          1,
+          300,
+          6
+        ],
+        "dtype": "float32",
+        "columns": [
+          "x1",
+          "y1",
+          "x2",
+          "y2",
+          "confidence",
+          "class_id"
+        ],
+        "coordinates": "pixels in640x640 letterboxed image",
+        "person_class": 0,
+        "phone_class": 67
+      }
+    }
+  ]
+}

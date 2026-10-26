@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
+  <title>Phone Away</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+<svg class="icon-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+  <symbol id="i-camera" viewBox="0 0 24 24"><path d="M8 5 6 8H3v12h18V8h-3l-2-3Z"/><circle cx="12" cy="13" r="4"/></symbol>
+  <symbol id="i-volume" viewBox="0 0 24 24"><path d="m11 5-6 5H2v4h3l6 5ZM15 8c3 2 3 6 0 8m3-11c5 4 5 10 0 14"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h16m-6-6 6 6-6 6"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6ZM8 12l3 3 5-6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 5h4m-3 14h2"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m9 5 10 7-10 7Z"/></symbol>
+</defs></svg>
+<div class="shell">
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="Phone Away home"><svg aria-hidden="true"><use href="#i-phone"/></svg>Phone Away</a>
+    <div class="header-actions">
+      <span class="local-pill" id="privacy-pill"><span class="dot"></span>Local analysis</span>
+      <button class="text-button" id="how-button">Setup <span aria-hidden="true">↗</span></button>
+    </div>
+  </header>
+  <main>
+    <div class="workspace">
+      <section class="camera-card" aria-label="Camera and detection">
+        <div class="card-toolbar">
+          <div class="toolbar-title"><svg aria-hidden="true"><use href="#i-camera"/></svg>Camera</div>
+          <span class="status-pill" id="camera-status"><span class="dot"></span>Camera off</span>
+        </div>
+        <div class="camera-stage" id="camera-stage">
+          <video id="camera" autoplay muted playsinline aria-label="Live camera preview"></video>
+          <canvas id="overlay" aria-hidden="true"></canvas>
+          <div class="camera-idle" id="camera-idle">
+            <svg class="idle-icon" aria-hidden="true"><use href="#i-camera"/></svg>
+            <h2 id="stage-title">Camera off</h2>
+            <p id="stage-description">Start a session to detect phone use.</p>
+            <button class="demo-button" id="demo-button"><svg aria-hidden="true"><use href="#i-play"/></svg>Test alert (no camera)</button>
+          </div>
+          <div class="live-label" id="live-label" hidden><span class="dot"></span>LIVE · LOCAL ANALYSIS</div>
+          <div class="detection-banner" id="detection-banner" hidden>
+            <svg aria-hidden="true"><use href="#i-phone"/></svg>
+            <div><strong id="detection-title">Phone detected</strong><span id="detection-description">Confirming phone use…</span></div>
+            <div class="detection-progress" id="detection-progress"></div>
+          </div>
+          <button class="hide-preview" id="hide-preview" hidden>Hide preview</button>
+        </div>
+        <div class="camera-footer">
+          <span><svg aria-hidden="true"><use href="#i-shield"/></svg><span id="privacy-caption">Frames stay on this device. Not recorded.</span></span>
+          <span class="resolution" id="frame-caption">READY</span>
+        </div>
+      </section>
+      <aside class="session-card" aria-label="Session controls">
+        <div class="session-heading"><h2>Session</h2><div class="section-kicker"><span class="dot" id="session-dot"></span><span id="session-status">Ready</span></div></div>
+        <div class="timer" id="session-time" aria-label="Session time">00<span>:</span>00</div>
+        <div class="timer-label">Session time</div>
+        <div class="session-metrics">
+          <div><strong id="nudge-count">0</strong><span>Alerts</span></div>
+          <div><strong id="checks-count">0</strong><span>Checks</span></div>
+          <div><strong id="latency-value">—</strong><span>Last check</span></div>
+        </div>
+        <div class="latest-result"><span>Latest result</span><p id="result-value">No checks yet</p></div>
+        <div class="session-actions">
+          <button class="primary-button" id="start-button"><span id="start-label">Start session</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+          <button class="end-button" id="end-button" hidden>End session</button>
+          <p class="start-hint" id="start-hint">The camera turns on when you start.</p>
+        </div>
+      </aside>
+    </div>
+    <div class="message" id="message" role="status" hidden></div>
+    <section class="settings-grid" aria-label="Session settings">
+      <article class="settings-card audio-card">
+        <div class="settings-heading">
+          <div class="heading-icon"><svg aria-hidden="true"><use href="#i-volume"/></svg></div>
+          <h2>Audio alert</h2>
+          <button id="audio-toggle" class="switch" role="switch" aria-checked="true" aria-label="Enable audio alerts"><span></span></button>
+        </div>
+        <div class="audio-sample">
+          <button class="audio-play" id="test-audio" aria-label="Play audio" title="Play audio"><svg aria-hidden="true"><use href="#i-play"/></svg></button>
+          <div><strong id="audio-name">“Hey. The phone can wait.”</strong><span id="audio-detail">Sample audio · 3 seconds</span></div>
+          <div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <label class="volume-label" for="volume"><span>Volume</span><input id="volume" type="range" min="0" max="100" value="75"><output id="volume-value">75%</output></label>
+        <div class="audio-options"><label class="upload-label" for="audio-upload">Choose audio file <span aria-hidden="true">↗</span><input type="file" id="audio-upload" accept="audio/*"></label><button class="text-button" id="audio-reset" hidden>Use default</button><span>Up to 30 seconds · 10 MB</span></div>
+        <p class="small-note" id="rearm-description">Plays once per pickup. One second of clear detection resets the alert.</p>
+      </article>
+      <article class="settings-card detection-card">
+        <div class="settings-heading"><div class="heading-icon"><svg aria-hidden="true"><use href="#i-shield"/></svg></div><h2>Detection</h2><span class="mini-tag">LOCAL</span></div>
+        <p class="detection-note">YOLO26 finds the phone; hand tracking checks whether it’s held. Runs on your Mac.</p>
+        <div class="setting-row"><label for="speed">Check speed</label><select id="speed" aria-describedby="speed-description"><option value="fast" selected>Fast · up to 10 checks/s</option><option value="balanced">Balanced · up to 5 checks/s</option><option value="economy">Economy · up to 2 checks/s</option></select></div>
+        <p class="detection-note" id="speed-description">Target speed; actual speed depends on your Mac. Each check uses a fresh frame.</p>
+        <div class="setting-pair">
+          <label for="delay">Confirm phone use for<select id="delay"><option value="1000" selected>1 second</option><option value="2000">2 seconds</option><option value="3000">3 seconds</option><option value="5000">5 seconds</option><option value="8000">8 seconds</option></select></label>
+          <label for="sensitivity">Sensitivity<select id="sensitivity"><option value="0.25" selected>Very high</option><option value="0.4">High</option><option value="0.55">Balanced</option><option value="0.7">Low</option></select></label>
+        </div>
+        <details class="advanced">
+          <summary>Camera <span aria-hidden="true">+</span></summary>
+          <label for="camera-select">Camera<select id="camera-select"><option value="">Default camera</option></select></label>
+        </details>
+      </article>
+    </section>
+  </main>
+</div>
+<dialog id="help-dialog" aria-labelledby="help-title">
+  <button class="dialog-close" id="close-help" aria-label="Close setup">×</button>
+  <h2 id="help-title">Setup</h2>
+  <p>Start a session and allow camera access. The alert plays once after sustained phone detection. Monitoring continues when you switch tabs. Keep this page open and your Mac awake.</p>
+  <div class="help-item"><h3>Local · YOLO26 + hands</h3><p>Pretrained YOLO26 detects phones and draws yellow boxes. MediaPipe hand tracking estimates whether a phone is held. No custom training or API key is needed. Frames stay in your browser. A box means a phone is visible; the alert waits for sustained phone use. Hidden phones and hands can be missed.</p></div>
+  <div class="help-item"><h3>Check speed</h3><p>Local detection targets 10, 5, or 2 checks per second. A check must finish before the next begins, so actual speed depends on your device and model. Each check uses the current camera frame.</p></div>
+  <p class="small-note">No frames are saved by this app. No microphone access is required. Detection identifies visible phone use; it cannot determine whether the phone is used for work.</p>
+</dialog>
+</body>
+</html>

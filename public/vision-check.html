@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Local vision check · Phone Away</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/vision-check.css">
+  <script type="module" src="/vision-check.js"></script>
+</head>
+<body>
+  <main class="vision-check">
+    <a href="/">← Phone Away</a>
+    <h1>Local vision check</h1>
+    <p>Runs the bundled detector on a still image. No camera, audio, uploads, or API calls.</p>
+    <label for="test-image">Optional test image</label>
+    <input id="test-image" type="file" accept="image/*">
+    <p>Without an image, this checks loading and speed on an empty frame. It does not measure detection accuracy.</p>
+    <button id="run-check" class="primary-button">Run 20-frame check</button>
+    <p id="test-status" role="status">Ready.</p>
+    <canvas id="test-canvas" width="640" height="480" aria-label="Test image and detected phone boxes"></canvas>
+    <pre id="test-result"></pre>
+  </main>
+</body>
+</html>
